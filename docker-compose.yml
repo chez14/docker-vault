@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   vault:
-    image: vault:1.10
+    image: vault:1.10.0
     container_name: vault
     hostname: vault
     ports:
@@ -17,7 +17,7 @@ services:
     restart: always
 
   vault-init:
-    image: vault:1.10
+    image: vault:1.10.0
     container_name: vault-init
     environment:
       - VAULT_ADDR=http://vault:8200
@@ -26,6 +26,7 @@ services:
       - ./vault-root-token:/vault/file/vault-root-token
       - ./vault-init.sh:/usr/local/bin/vault-init.sh
       - ./vault/file:/vault/file/
+      - ./vault/_key-token:/vault/_key-token/
     command: /usr/local/bin/vault-init.sh
     restart: on-failure
     depends_on:
