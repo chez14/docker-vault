@@ -4,7 +4,7 @@ Running Vault in docker container needs manual action to make it work serve
 properly after installation.
 
 In this repo you will find an easy way to deploy Vault in production mode
-without manual action. You can set a token sudo priviliges with MY_VAULT_TOKEN
+without manual action. You can set a token sudo priviliges with `MY_VAULT_TOKEN`
 variable, just use the following command:
 
 ```
@@ -15,5 +15,5 @@ After inital setup you can stop and start the vault container with
 docker-compose down/up your vault server will be unsealed automatically.
 
 Even unsealing is automatic if you need unseal keys you can find it in
-_/vault/\_key-token/keys_ file in vault container.
+`/vault/_key-token/keys` file in vault container.
    
