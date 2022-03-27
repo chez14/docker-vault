@@ -5,7 +5,7 @@ services:
     container_name: vault
     hostname: vault
     ports:
-      - 8200:8200
+      - 127.0.0.1:8200:8200
     volumes:
       - ./config.hcl:/vault/config/config.hcl
       - ./vault/file:/vault/file/
@@ -14,7 +14,7 @@ services:
     cap_add:
       - IPC_LOCK
     command: server
-    restart: always
+    restart: unless-stopped
 
   vault-init:
     image: vault:1.10.0
